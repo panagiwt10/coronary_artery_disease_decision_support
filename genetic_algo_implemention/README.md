@@ -1,80 +1,57 @@
-# CAD_ML
-here is a machine learning model for predicting if someone has Coronary artery disease or not 
-by using genetic algorythms for feature selection and a cross valifation (90/10 %).The model which was used was an SVM either with a linear kernel or rbf kernel
+# CAD Prediction: SVM Feature Selection via Genetic Algorithm
 
+## Project Overview
+This project implements an advanced Machine Learning methodology for predicting **Coronary Artery Disease (CAD)**. It utilizes a **Genetic Algorithm (GA)** for optimal feature selection and evaluates performance using a **Support Vector Machine (SVM)** classifier.
 
+The primary goal is to identify the most discriminative clinical markers while reducing diagnostic costs and computational complexity through intelligent feature subset selection.
 
-# SVM Feature Selection via Genetic Algorithm (CAD Prediction)
-Αυτό το έργο υλοποιεί μια μεθοδολογία Μηχανικής Μάθησης για την πρόβλεψη Στεφανιαίας Νόσου (CAD). Χρησιμοποιεί έναν Γενετικό Αλγόριθμο (Genetic Algorithm - GA) για την επιλογή των βέλτιστων χαρακτηριστικών (feature selection) και στη συνέχεια αξιολογεί την απόδοση χρησιμοποιώντας Support Vector Machine (SVM).
+---
 
-# Περιγραφή Διαδικασίας
-Ο κώδικας εκτελεί τα παρακάτω βήματα αυτόματα:
+## Methodology
 
-# Προεπεξεργασία Δεδομένων (Preprocessing):
+### 1. Data Preprocessing
+The model performs several automated cleaning and transformation steps:
+* **Categorical Encoding:** Converts clinical observations (e.g., Sex, Smoking status) using Binary Mapping and One-Hot Encoding for multi-class variables (BBB, VHD).
+* **Target Labeling:** Encodes the diagnostic result (`Cath`) into binary format (1 for 'Cad', 0 for 'Normal').
+* **Normalization:** Scales all numerical features to a [0, 1] range using **MinMaxScaler** to ensure compatibility with distance-based algorithms like SVM.
 
-Μετατροπή κατηγορικών μεταβλητών (One-Hot Encoding & Binary Mapping).
+### 2. Feature Selection (Genetic Algorithm)
+A Genetic Algorithm is employed to navigate the high-dimensional feature space and find the most relevant clinical indicators:
+* **Fitness Function:** Evaluates feature subsets based on the Mean Accuracy of an SVM with an RBF kernel using 5-Fold Cross-Validation.
+* **Evolutionary Process:** Uses Selection, Crossover, and Mutation to "evolve" the feature list over multiple generations.
+* **Benefit:** This reduces "noise" in the data and prevents overfitting by removing redundant variables.
 
-Κωδικοποίηση της στόχου-μεταβλητής (Cath: 'Cad' -> 1, 'Normal' -> 0).
+### 3. Classification & Evaluation
+The final optimized feature set is validated using a **10-Fold Stratified Cross-Validation** approach with a Linear SVM.
 
-Κανονικοποίηση δεδομένων με MinMaxScaler (κλίμακα 0-1).
+---
 
-# Επιλογή Χαρακτηριστικών (Feature Selection):
+## Results & Key Metrics
+The model provides a comprehensive performance report including:
+* **Accuracy:** Overall percentage of correct predictions.
+* **Precision:** The reliability of the model when predicting positive CAD cases.
+* **Recall (Sensitivity):** The ability to detect all actual patients (critical in medical diagnostics).
+* **F1 Score:** The harmonic mean of Precision and Recall.
+* **ROC-AUC:** Measures the model's ability to distinguish between classes across all thresholds.
 
-Εφαρμογή Γενετικού Αλγόριθμου για την εύρεση του βέλτιστου υποσυνόλου χαρακτηριστικών.
+---
 
-Συνάρτηση Fitness: Ακρίβεια (Accuracy) ενός Linear SVM με 5-Fold Cross-Validation.
+## Conclusion: Resource Efficiency
+By integrating Genetic Algorithms with SVM, this project achieves:
+1.  **Clinical Efficiency:** Identification of a "minimal" set of medical tests required for accurate diagnosis, saving time and medical resources.
+2.  **Cost Reduction:** Minimizing the need for expensive, non-essential examinations.
+3.  **Scalability:** A lightweight model that can be integrated into real-time digital health tools.
 
-# Τελική Αξιολόγηση (Final Evaluation):
+---
 
-Χρήση μόνο των επιλεγμένων χαρακτηριστικών.
+## Requirements
+* Python 3.x
+* NumPy & Pandas
+* Scikit-learn
+* Matplotlib & Seaborn (for visualization)
 
-Εκτέλεση 10-Fold Stratified Cross-Validation για αντικειμενική αξιολόγηση.
-
-# Οπτικοποίηση:
-
-Εμφάνιση Heatmap του Confusion Matrix για την οπτική επαλήθευση των σφαλμάτων.
-
-Απαιτήσεις (Requirements)
-Για να τρέξει ο κώδικας, απαιτείται Python 3.x και οι παρακάτω βιβλιοθήκες:
-
-Bash
-
-pip install numpy pandas scikit-learn matplotlib seaborn
-
-Δομή Δεδομένων
-Ο κώδικας περιμένει ένα αρχείο με το όνομα Cor_data.csv στον ίδιο φάκελο. Το αρχείο πρέπει να περιέχει:
-
-Διάφορα ιατρικά χαρακτηριστικά (στήλες).
-
-Μια στήλη-στόχο με όνομα 'Cath' που περιέχει τις τιμές Cad (ασθενής) και Normal (υγιής).
-
-Πώς να το τρέξετε
-Απλά εκτελέστε το script:
-
-Bash
-
-python main.py
-(Αντικαταστήστε το main.py με το όνομα που δώσατε στο αρχείο python).
-
-# Ερμηνεία Αποτελεσμάτων
-Ο κώδικας θα τυπώσει στην κονσόλα τα αποτελέσματα ανά γενιά του Γενετικού Αλγόριθμου και στο τέλος θα εμφανίσει τα συνολικά Metrics:
-
-Accuracy: Το ποσοστό των συνολικών σωστών προβλέψεων.
-
-Precision: Πόσο αξιόπιστο είναι το μοντέλο όταν προβλέπει "Ασθένεια".
-
-Recall (Sensitivity): Η ικανότητα του μοντέλου να εντοπίζει όλους τους πραγματικούς ασθενείς (Κρίσιμο για ιατρικά δεδομένα).
-
-F1 Score: Ο αρμονικός μέσος όρος Precision και Recall (δείκτης ισορροπίας).
-
-Confusion Matrix: Ένα διάγραμμα που δείχνει τα True Positives, True Negatives, False Positives και False Negatives.
-
-# Παράμετροι (Configuration)
-Μπορείτε να αλλάξετε τις παραμέτρους του Γενετικού Αλγόριθμου στην αρχή του κώδικα:
-
-Python
-
-POP_SIZE = 50   # Μέγεθος πληθυσμού
-N_GEN = 10      # Αριθμός γενιών (αυξήστε το για καλύτερα αποτελέσματα)
-MUT_RATE = 0.1  # Πιθανότητα μετάλλαξης
-Σημείωση: Η χρήση του MinMaxScaler και η σωστή διαδικασία Cross-Validation εξασφαλίζουν ότι δεν υπάρχει διαρροή δεδομένων (Data Leakage) και τα αποτελέσματα είναι αξιόπιστα.
+## How to Run
+1. Ensure `Cor_data.csv` is in the project directory.
+2. Run the Jupyter Notebook or Python script:
+   ```bash
+   python main.py
