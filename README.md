@@ -76,7 +76,7 @@ Ensure your Dataset (Cor_data.csv) is placed in the ```EDA_analysis_AND_preproc/
  * For a direct execution of the algorithm, run the testing script:     
    
    ```bash
-    python GA_testing.py
+    python genetic_algo.py
    ```
    
 ## ⚠️ Medical Disclaimer
