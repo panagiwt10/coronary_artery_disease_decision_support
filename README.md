@@ -17,7 +17,7 @@ project_root/
 │   └── preproc.py            # Script for data cleaning and transformation
 ├── genetic_algo_implemention/
 |   ├── CAD_GA.ipynb          # Core notebook with the GA implementation and SVM evaluation
-│   └── genetic_algo          #
+│   └── genetic_algo.py       # A fracture on how genetic algorythm works on this project
 └── README.md                 # Project documentation
 ```
 
