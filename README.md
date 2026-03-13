@@ -20,6 +20,7 @@ project_root/
 │   └── genetic_algo.py       # A fracture on how genetic algorythm works on this project
 └── README.md                 # Project documentation
 ```
+**Disclaimer:** I suggest you read the ```CAD_GA.ipynb``` file !!!
 
 ## 🛠 Methodology
 
