@@ -16,7 +16,8 @@ project_root/
 │   ├── CAD_eda.ipynb         # Jupyter Notebook for Exploratory Data Analysis
 │   └── preproc.py            # Script for data cleaning and transformation
 ├── genetic_algo_implemention/
-│   └── CAD_GA.ipynb          # Core notebook with the GA implementation and SVM evaluation
+|   ├── CAD_GA.ipynb          # Core notebook with the GA implementation and SVM evaluation
+│   └── genetic_algo          #
 └── README.md                 # Project documentation
 ```
 
