@@ -59,8 +59,8 @@ The hybrid GA-SVM approach yielded highly reliable metrics, particularly in dete
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/cad-prediction-ga-svm.git](https://github.com/yourusername/cad-prediction-ga-svm.git)
-   cd cad-prediction-ga-svm
+   git clone [https://github.com/yourusername/cad_prediction_ga_svm.git](https://github.com/panagiwt10/cad_prediction_ga_svm.git)
+   cd cad_prediction_ga_svm
    ```
    
 2. **Install Dependencies:**
