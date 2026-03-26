@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.decomposition import PCA 
 
 
-#Min max για GA και standard scaler για EDA εξηγηση και απλη αναλυση 
+#Min max for GA and standard scaler for EDA 
 
 file_path = "Cor_data.csv"
 df = pd.read_csv(file_path)
@@ -78,11 +78,11 @@ print(f"Explained variance by PC1: {explained_variance[0]*100:.2f}%")
 print(f"Explained variance by PC2: {explained_variance[1]*100:.2f}%")
 
 
-# Αποθήκευση των προεπεξεργασμένων δεδομένων (X_scaled) και του στόχου (y)
+# Saving the preprocessed data (X_scaled) and the target (y)
 preprocessed_data = pd.DataFrame(X_scaled, columns=X.columns)
 preprocessed_data['Target_class'] = y
 
-# Εξαγωγή σε αρχείο CSV
+# Export to CSV file
 preprocessed_data.to_csv('preprocessed_data.csv', index=False)
 
 print("The preprocessed data has been saved to 'preprocessed_data.csv'")
